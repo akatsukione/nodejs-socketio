@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socket.IO Chat</title>
+</head>
+<body></body>
+    <input id="m" autocomplete="off" autofocus /><button>Send</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        document.querySelector('button').onclick = () => {
+            const input = document.getElementById('m');
+            socket.emit('message', input.value);
+            input.value = '';
+        };
+    </script>
+</body>
+</html>
